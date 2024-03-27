@@ -8,10 +8,6 @@
 
  Create as many sidebars as you want.
  */
-const {
-  versionSelector,
-  versionCrumb,
-} = require("docusaurus-plugin-openapi-docs/lib/sidebars/utils");
 
 const sidebars = {
   tutorialSidebar: [
@@ -27,10 +23,6 @@ const sidebars = {
     {
       type: "doc",
       id: "sidebars",
-    },
-    {
-      type: "doc",
-      id: "versioning",
     },
     {
       type: "category",

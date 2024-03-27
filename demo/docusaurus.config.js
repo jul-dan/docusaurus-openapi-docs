@@ -72,6 +72,18 @@ const config = {
               },
             ],
           },
+          {
+            href: "https://medium.com/palo-alto-networks-developer-blog",
+            position: "right",
+            className: "header-medium-link",
+            "aria-label": "Palo Alto Networks Developer Blog",
+          },
+          {
+            href: "https://github.com/PaloAltoNetworks/docusaurus-openapi-docs",
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
+          },
         ],
       },
       footer: {
@@ -173,11 +185,6 @@ const config = {
           logoClass: "powershell",
         },
       ],
-      algolia: {
-        apiKey: "441074cace987cbf4640c039ebed303c",
-        appId: "J0EABTYI1A",
-        indexName: "docusaurus-openapi",
-      },
       announcementBar: {
         id: "announcementBar_1",
         content:
@@ -192,6 +199,25 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
+          petstore_versioned: {
+            specPath: "examples/petstore.yaml",
+            outputDir: "docs/petstore_versioned", // No trailing slash
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+            version: "2.0.0", // Current version
+            label: "v2.0.0", // Current version label
+            baseUrl: "/petstore_versioned/swagger-petstore-yaml", // Leading slash is important
+            versions: {
+              "1.0.0": {
+                specPath: "examples/petstore-1.0.0.yaml",
+                outputDir: "docs/petstore_versioned/1.0.0", // No trailing slash
+                label: "v1.0.0",
+                baseUrl: "/petstore_versioned/1.0.0/swagger-petstore-yaml", // Leading slash is important
+              },
+            },
+          },
           qovery: {
             specPath: "examples/qovery.yaml",
             outputDir: "docs/qovery",
@@ -200,6 +226,8 @@ const config = {
               categoryLinkSource: "tag",
             },
             template: "api.mustache", // Customize API MDX with mustache template
+            downloadUrl:
+              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-openapi-docs/main/demo/examples/petstore.yaml",
             hideSendButton: false,
             showSchemas: true,
           },
